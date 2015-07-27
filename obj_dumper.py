@@ -57,3 +57,13 @@ def dict_to_obj(obj_dict):
         new_obj.__setattr__(attr, obj_dict[attr])
 
     return new_obj
+
+def make_copy(obj):
+    """
+    Makes a copy (without using copy.copy) by calling obj_to_dict and then dict_to_obj
+    :param obj: obj to copy
+    :return: copy of obj
+    """
+    copy_dict = obj_to_dict(obj)
+    copy_obj = dict_to_obj(copy_dict)
+    return copy_obj
